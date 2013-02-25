@@ -1,0 +1,8 @@
+*.bpkg
+*.gem
+*.rbc
+.DS_Store
+.bpm
+.bundle
+.config
+.vagrant
