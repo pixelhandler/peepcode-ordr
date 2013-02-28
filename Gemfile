@@ -2,8 +2,19 @@ source "https://rubygems.org"
 
 gem "json"
 gem "rack"
-gem "rake-pipeline", :git => "https://github.com/livingsocial/rake-pipeline.git"
-#gem "rake-pipeline-web-filters", :git => "https://github.com/wycats/rake-pipeline-web-filters.git"
+gem "rspec"
+gem "tilt"
+gem "sass"
+gem "compass"
+gem "coffee-script"
+gem "redcarpet", '~> 2.0'
+gem "yui-compressor"
+gem "uglifier"
+gem "less"
+gem "json"
+gem "therubyracer"
+gem "stylus"
+gem "rake-pipeline-web-filters", "~> 0.7.0"
 #gem "ember-dev", :git => "https://github.com/emberjs/ember-dev.git", :branch => "master"
 
-gem "compass"
+# vim:ft=ruby
