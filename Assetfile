@@ -1,8 +1,14 @@
 # Assetfile
 
-# See examples:
+# See Getting Started readme
+# - https://github.com/livingsocial/rake-pipeline/blob/master/GETTING_STARTED.md
+
+# See Assetfile examples:
 # - https://gist.github.com/dudleyf/1557811
 # - https://github.com/ryanto/ryanto.github.com/blob/master/Assetfile
+
+# See minispade_filter.rb filter comments
+# https://github.com/wycats/rake-pipeline-web-filters/blob/master/lib/rake-pipeline-web-filters/minispade_filter.rb
 
 require "json"
 require "rake-pipeline-web-filters"
@@ -22,10 +28,10 @@ class HandlebarsFilter < Rake::Pipeline::Filter
   end
 end
 
-input "app" do
-  match "**/*.js" do
+input "app/js" do
+  match "**/libs/**/*.js" do
     minispade :module_id_generator => proc { |input|
-      input.path.dup.sub(/\.js$/, "")
+	    input.path.dup.sub(/^js\//, "").sub(/libs\//, "").sub(/\.js$/, "")
     }
     filter Rake::Pipeline::OrderingConcatFilter,
       [
@@ -33,19 +39,26 @@ input "app" do
         "app/js/libs/handlebars-1.0.0.rc.2.js",
         "app/js/libs/ember.js",
         "app/js/libs/ember-data.js",
-        "app/js/app.js",
-        "app/js/routes.js",
-        "app/js/controllers.js",
-        "app/js/helpers.js",
-        "app/js/models.js",
-        "app/js/views.js",
-        "app/js/fixtures.js"
       ],
-      "app.js"
-    concat "js/app.js"
+      "libs.js"
+    concat "js/libs.js"
+    #uglify
+  end
+  
+  match "**/modules/**/*.js" do
+    minispade :module_id_generator => proc { |input|
+      input.path.dup.sub(/^js\//, "").sub(/modules\//, "").sub(/\.js$/, "")
+    }
+    concat "js/modules.js"
     #uglify
   end
 
+  match "**/app.js" do
+    copy "js/app.js"
+  end
+end
+
+input "app/css" do
   match "**/*.sass" do
     sass
   end
@@ -54,7 +67,9 @@ input "app" do
     concat "css/app.css"
     #yui_css
   end
+end
 
+input "app/templates" do
   match "**/*.handlebars" do
     filter HandlebarsFilter
     minispade :module_id_generator => proc { |input| File.basename(input.fullpath, ".js") + "_template" }
