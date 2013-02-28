@@ -1,0 +1,50 @@
+# Assetfile
+
+# See examples:
+# - https://gist.github.com/dudleyf/1557811
+# - https://github.com/ryanto/ryanto.github.com/blob/master/Assetfile
+
+require "json"
+require "rake-pipeline-web-filters"
+
+output "web"
+
+class HandlebarsFilter < Rake::Pipeline::Filter
+  def initialize(&block)
+    block ||= proc { |input| input.sub(/\.handlebars$/, ".js") }
+    super(&block)
+  end
+
+  def generate_output(inputs, output)
+    inputs.each do |input|
+      output.write "return Ember.Handlebars.compile(#{input.read.to_json})"
+    end
+  end
+end
+
+input "app" do
+  match "**/*.js" do
+    minispade :module_id_generator => proc { |input|
+      input.path.dup.sub(/\.js$/, "")
+    }
+    concat "app.js"
+    #uglify
+  end
+
+  match "**/*.sass" do
+    sass
+  end
+
+  match "**/*.css" do
+    concat "app.css"
+    #yui_css
+  end
+
+  match "**/*.handlebars" do
+    filter HandlebarsFilter
+    minispade :module_id_generator => proc { |input| File.basename(input.fullpath, ".js") + "_template" }
+    concat "templates.js"
+  end
+end
+
+# vim:ft=ruby

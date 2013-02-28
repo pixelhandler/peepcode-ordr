@@ -6,3 +6,8 @@
 .bundle
 .config
 .vagrant
+app/bin/
+tmp/*
+web/app.css
+web/app.js
+web/app.min.js

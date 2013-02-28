@@ -9,9 +9,9 @@ Vagrant::Config.run do |config|
   config.ssh.forward_agent = true
   config.vm.customize ["modifyvm", :id, "--memory", 1024]
   config.vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-  #config.vm.forward_port 3000, 4000
   nfs_setting = RUBY_PLATFORM =~ /darwin/ ? true : false
   config.vm.share_folder("v-root", "/vagrant", ".", :nfs => nfs_setting)
+  config.vm.forward_port 9292, 9292
 
   # We need a javascript runtime to build ember.js with rake
   # and phantomjs to execute test suite.
