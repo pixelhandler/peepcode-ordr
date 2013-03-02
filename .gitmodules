@@ -10,3 +10,6 @@
 [submodule "cookbooks/nodejs"]
 	path = cookbooks/nodejs
 	url = https://github.com/mdxp/nodejs-cookbook
+[submodule "cookbooks/ack-grep"]
+	path = cookbooks/ack-grep
+	url = https://github.com/fooforge/chef-cookbook_ack-grep.git

@@ -31,5 +31,6 @@ Vagrant::Config.run do |config|
     chef.add_recipe "nodejs::install_from_source"
     chef.add_recipe "phantomjs"
     chef.add_recipe "vim"
+    chef.add_recipe "ack-grep"
   end
 end

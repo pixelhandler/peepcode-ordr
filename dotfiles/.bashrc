@@ -1,11 +1,11 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 export NODE_PATH="/usr/local/bin/node:/usr/local/lib/node_modules:/usr/local/lib/jsctags/:$NODE_PATH"
-
 export EDITOR=vim
 
-# https://github.com/rupa/z.git
+alias ack='ack-grep'
+
 . /usr/local/bin/z.sh
-# alias zadd="_z --add \"\$(pwd -P 2>/dev/null)\" 2>/dev/null;"
+alias zadd="_z --add \"\$(pwd -P 2>/dev/null)\" 2>/dev/null;"
 
 showBranch(){
     if [$(pwd | grep "projects|www") != ""]; then

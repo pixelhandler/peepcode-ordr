@@ -9,6 +9,8 @@ See: <https://peepcode.com/products/emberjs>
 * See the [Assetfile](Assetfile) for details of the build and links to docs
 * Uses Minispade for dependency management see [comments in minispade source](https://github.com/wycats/rake-pipeline-web-filters/blob/master/lib/rake-pipeline-web-filters/minispade_filter.rb)
 
+One you've run `bundle install` the build command is `bin/rakep build`; and to run a server use `bin/rakep server`. This repo has provisioning with `vagrant up` so you can use a virtual box rather than your local system if you like. See the *Setup* instructions below
+
 
 ## Directories
 
@@ -37,7 +39,7 @@ See: <https://peepcode.com/products/emberjs>
 
 This list of commands descirbes how to setup a [Oracle’s VirtualBox](https://www.virtualbox.org/wiki/Downloads) using [Vagrant](http://docs.vagrantup.com/v1/docs/getting-started/). The [cookbooks](cookbooks) are submodules used by [chef_solo](http://docs.vagrantup.com/v1/docs/provisioners/chef_solo.html) to provision a virtual box. The box used in the [Vagrantfile](Vagrantfile) is a linux precise64 box configured with ruby-1.9.3-p194. The root (sudo) password for the virtual box is `vagrant`. Also can connect to the box using `vagrant ssh`; this will be the `vagrant` user on the box.
 
-The provision script uses shared folders so the repo on your host system is the same inside the guest box at `/vagrant` as well as `var/www`
+The provision script uses shared folders so the repo on your host system is the same inside the guest box at `/vagrant` as well as `var/www`. Included in the provision are installations for nodejs, phantomjs, ack-grep and ack-grep.
 
 	git submodule init
 	vagrant up
