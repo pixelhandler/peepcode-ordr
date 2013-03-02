@@ -7,3 +7,6 @@
 [submodule "cookbooks/vim"]
 	path = cookbooks/vim
 	url = https://github.com/opscode-cookbooks/vim
+[submodule "cookbooks/nodejs"]
+	path = cookbooks/nodejs
+	url = https://github.com/mdxp/nodejs-cookbook
