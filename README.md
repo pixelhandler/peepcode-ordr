@@ -16,9 +16,15 @@ One you've run `bundle install` the build command is `bin/rakep build`; and to r
 
 **Application**
 
-* [/app](app) - your application files
-* /tmp - added and used by build tools, ignored by .gitignore
-* [/public](public) - used as destination of build tools
+* [/app](app) - Application root, [Assetfile](Assetfile) processes contents
+* [/app/css](app/css) - Stylesheets (.css|.sass) processed and concatinated during build
+* [/app/js](app/js) - JavaScript (.js) files
+* [/app/js/app.js](app/js/app.js) - Application bootstrap, copied during build
+* [/app/js/libs](app/js/libs) - JavaScript library files, e.g. Ember.js, Handlebars, jQuery; use minispade to require
+* [/app/js/modules](app/js/modules) - JavaScript application files, use minispade to require
+* [/app/templates](app/templates) - Template (.handlebars) files, compiled by build task, use minispade to require
+* /tmp - Used by build tools, ignored by .gitignore
+* [/public](public) - Used as destination by build tools
 
 **System**
 
