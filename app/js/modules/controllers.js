@@ -6,7 +6,7 @@ App.TablesController = Ember.ArrayController.extend({
 });
 
 App.FoodController = Ember.ArrayController.extend({
-  addFood: function(food) {
+  addFood: function (food) {
     var table = this.controllerFor('table').get('model'),
         tabItems = table.get('tab.tabItems');
 
@@ -17,3 +17,4 @@ App.FoodController = Ember.ArrayController.extend({
   }
 });
 
+//App.TabController = Ember.ObjectController.extend();

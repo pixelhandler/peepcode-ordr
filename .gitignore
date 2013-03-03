@@ -57,6 +57,7 @@ npm-debug.log
 public/css/app.css
 public/js/app.js
 public/js/app.min.js
+public/js/modules.js
 public/js/templates.js
 tags
 tmp/*
