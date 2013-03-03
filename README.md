@@ -1,6 +1,6 @@
 # Peepcode Ember.js Ordr app
 
-The **Ordr application code** is [used by permission][peepcode-ordr-tweet] from [Peepcode][peepcode]. See the [Fire up Ember.js video][peepcode-emberjs-video] page for details on the application. the Peepcode tutorial video is excellent and worth the purchase price; if you are learning [Ember.js][emberjs] then buy it. The Ordr application tackles more complexity than a todos application and also demon shows how Ember.js works behind the scenes.
+The **Ordr application code** is [used by permission][peepcode-ordr-tweet] from [Peepcode][peepcode]. See the [Fire up Ember.js video][peepcode-emberjs-video] page for details on the application. the Peepcode tutorial video is excellent and worth the purchase price; if you are learning [Ember.js][emberjs] then buy it. The Ordr application tackles more complexity than a todos application and also demonstrates how Ember.js works behind the scenes.
 
 
 ## Build Tools
