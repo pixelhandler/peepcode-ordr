@@ -97,3 +97,5 @@ Execute the scripts in the /vagrant/bin directory after provisioning the Virtual
 [vagrant]: http://docs.vagrantup.com/v1/docs/getting-started/ "Vagrant: Getting Started"
 [vagrant-chef_solo]: http://docs.vagrantup.com/v1/docs/provisioners/chef_solo.html "Vagrant: Chef Solo Provisioning"
 [virtualbox]: https://www.virtualbox.org/wiki/Downloads "Oracle’s VirtualBox"
+
+[ember-handlebars-precompile]: https://gist.github.com/wagenet/1608575 "Ember Handlebars Precompile"

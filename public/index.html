@@ -11,83 +11,16 @@
 
     <!-- Included CSS Files (Compressed) -->
     <link rel="stylesheet" href="css/app.css">
-	<!-- Script Loader -->
-	<script type="text/javascript" src="js/minispade.js"></script>
+    <!-- Script Loader -->
+    <script type="text/javascript" src="js/minispade.js"></script>
   </head>
   <body>
 
-    <script type="text/x-handlebars" data-template-name="application">
-      <div class="row">
-        <div class="twelve columns">
-          <h1>Ordr</h1>
-          <hr>
-          <p>{{outlet}}</p>
-        </div>
-      </div>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="tables">
-      <div class="row">
-        <div class="four columns" id="tables">
-          {{ partial "tableMenu" }}
-        </div>
-        <div class="eight columns" id="order">
-          {{ outlet }}
-        </div>
-      </div>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="tables/index">
-      <h2>Select a table at left</h2>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="_tableMenu">
-      <h2>Tables</h2>
-      {{#each table in controller}}
-      {{#linkTo "table" table class="panel six columns"}} {{ table.id }}{{/linkTo}}
-      {{/each}}
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="table">
-      <div class="row">
-        <div class="three columns">
-          {{ render "food" }}
-        </div>
-        <div class="nine columns">
-          <h2>Table <span>{{ id }}</span></h2>
-          {{ render "tab" tab }}
-        </div>
-      </div>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="tab">
-      <ul id="customer-tab">
-        {{#each tabItem in tabItems}}
-        <li><h3>{{tabItem.food.name}} <span>${{money tabItem.cents}}</span></h3></li>
-        {{else}}
-        <li><h3>Click a food to add it</h3></li>
-        {{/each}}
-        <li id="total"><h3>Total <span>${{money cents}}</span></h3></li>
-      </ul>
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="food">
-      <ul id="menu">
-        {{#each controller}}
-        <li>
-          <a href="#" {{action "addFood" this}}>
-            <img {{ bindAttr src="imageUrl" }}>
-            <p>{{ name }}</p>
-          </a>
-        </li>
-        {{/each}}
-      </ul>
-    </script>
-
-	<!-- Built Libraries -->
-	<script src="js/libs.js"></script>
-	<!-- Built application -->
-	<script src="js/modules.js"></script>
+    <!-- Built Libraries -->
+    <script src="js/libs.js"></script>
+    <!-- Built application -->
+    <script src="js/templates.js"></script>
+    <script src="js/modules.js"></script>
     <script src="js/app.js"></script>
 
   </body>

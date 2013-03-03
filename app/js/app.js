@@ -8,6 +8,16 @@ require("ember-data");
 /*global App*/
 window.App = Ember.Application.create();
 
+// Templates
+require("_tableMenu_template");
+require("application_template");
+require("food_template");
+require("tab_template");
+require("table_template");
+require("tables_template");
+require("tables/index_template");
+
+// Application
 require("routes");
 require("controllers");
 require("helpers");

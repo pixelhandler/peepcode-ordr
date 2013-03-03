@@ -16,14 +16,11 @@ require "rake-pipeline-web-filters"
 output "public"
 
 class HandlebarsFilter < Rake::Pipeline::Filter
-  def initialize(&block)
-    block ||= proc { |input| input.sub(/\.handlebars$/, ".js") }
-    super(&block)
-  end
-
   def generate_output(inputs, output)
     inputs.each do |input|
-      output.write "return Ember.Handlebars.compile(#{input.read.to_json})"
+      # for sub-templates we can't really use '/' in a filename so using '__' instead, then replacing
+      name = File.basename(input.fullpath, ".handlebars").sub(/__/, "/") 
+      output.write "return Ember.TEMPLATES['#{name}'] = Ember.Handlebars.compile(#{input.read.to_json})"
     end
   end
 end
@@ -31,7 +28,7 @@ end
 input "app/js" do
   match "**/libs/**/*.js" do
     minispade :module_id_generator => proc { |input|
-	    input.path.dup.sub(/^js\//, "").sub(/libs\//, "").sub(/\.js$/, "")
+      input.path.dup.sub(/^js\//, "").sub(/libs\//, "").sub(/\.js$/, "")
     }
     filter Rake::Pipeline::OrderingConcatFilter,
       [
@@ -44,7 +41,7 @@ input "app/js" do
     concat "js/libs.js"
     #uglify
   end
-  
+
   match "**/modules/**/*.js" do
     minispade :module_id_generator => proc { |input|
       input.path.dup.sub(/^js\//, "").sub(/modules\//, "").sub(/\.js$/, "")
@@ -72,7 +69,8 @@ end
 input "app/templates" do
   match "**/*.handlebars" do
     filter HandlebarsFilter
-    minispade :module_id_generator => proc { |input| File.basename(input.fullpath, ".js") + "_template" }
+    name = proc { |input| File.basename(input.fullpath, ".handlebars").sub(/__/, "/") + "_template" }
+    minispade :module_id_generator => name
     concat "js/templates.js"
   end
 end
