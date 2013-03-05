@@ -1,0 +1,13 @@
+{
+	"type": "Collection",
+	"properties": {
+		"tabItems": {
+			"name": "tabItems",
+			"type": "array",
+			"typeLabel": "array",
+			"required": true,
+			"id": "tabItems",
+			"order": 0
+		}
+	}
+}

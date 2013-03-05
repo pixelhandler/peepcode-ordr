@@ -6,6 +6,7 @@ App.Store = DS.Store.extend({
 });
 
 App.Table = DS.Model.extend({
+  number: DS.attr('number'),
   tab: DS.belongsTo('App.Tab')
 });
 

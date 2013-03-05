@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"imageUrl": {
+			"name": "imageUrl",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "imageUrl",
+			"order": 1
+		},
+		"cents": {
+			"name": "cents",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "cents",
+			"order": 2
+		}
+	}
+}

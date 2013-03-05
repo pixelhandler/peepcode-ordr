@@ -2,7 +2,7 @@
 
 // Implement explicitly to use the object proxy.
 App.TablesController = Ember.ArrayController.extend({
-  sortProperties: ['id']
+  sortProperties: ['number']
 });
 
 App.FoodController = Ember.ArrayController.extend({

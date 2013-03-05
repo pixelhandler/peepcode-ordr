@@ -32,5 +32,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "phantomjs"
     chef.add_recipe "vim"
     chef.add_recipe "ack-grep"
+    #chef.add_recipe "mongodb"
+    chef.add_recipe "deployd"
   end
 end

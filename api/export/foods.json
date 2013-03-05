@@ -1,0 +1,5 @@
+{ "name" : "Pizza", "imageUrl" : "img/pizza.png", "cents" : 1500, "_id" : "cb8aeec181b648f6" }
+{ "name" : "Pancakes", "imageUrl" : "img/pancakes.png", "cents" : 300, "_id" : "2e9d4523e9d928ed" }
+{ "name" : "Fries", "imageUrl" : "img/fries.png", "cents" : 700, "_id" : "885075c9060ddaac" }
+{ "name" : "Hot Dog", "imageUrl" : "img/hotdog.png", "cents" : 950, "_id" : "84a7fbfde88b98b1" }
+{ "name" : "Birthday Cake", "imageUrl" : "img/birthdaycake.png", "cents" : 2000, "_id" : "b37ebfcb29aee90b" }
