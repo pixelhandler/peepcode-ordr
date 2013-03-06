@@ -62,6 +62,7 @@ The provision script uses shared folders so the repo on your host system is the 
 * [bin/vim-config.sh](bin/vim-config.sh) will setup up vim with IDE like tools see repo [pixelhandler/vim-config][pixelhandler_vim-config] 
 * [bin/jsctags.sh](bin/jsctags.sh) configures [jsctags][jsctags], a ctags-compatible code indexing solution for JavaScript
 * [bin/dotfiles.sh](bin/dotfiles.sh) will copy the `dotfiles` folder contents into your vagrant box. If you put your ssh keys, e.g. id_rsa for github, into the [dotfiles/.ssh](dotfiles/.ssh) directory the keys will be copied there as well.
+* [bin/dpd_api.sh](bin/dpd_api.sh) script to setup and maintain a [deployd][deployd] api
 
 Execute the scripts in the /vagrant/bin directory after provisioning the VirtualBox with vagrant and connecting using `vagrant ssh`
 
@@ -72,7 +73,7 @@ Execute the scripts in the /vagrant/bin directory after provisioning the Virtual
 	sudo ./jsctags.sh
 	./vim-config.sh
 	. ~/.bash_profile
-
+	sudo ./dpd_api.sh
 
 ## Links
 
@@ -86,6 +87,7 @@ Execute the scripts in the /vagrant/bin directory after provisioning the Virtual
 
 
 [chef]: http://www.opscode.com/chef/ "Open-source automation platform"
+[deployd]: http://deployd.com/ "Simple way to build an API"
 [emberjs]: https://github.com/emberjs/ember.js "A JavaScript framework for creating ambitious web applications"
 [hjr3-dasfd]: https://github.com/hjr3/dasfd "Developers Against Single File Development, by Herman Radtke"
 [jsctags]: https://github.com/mozilla/doctorjs "a ctags-compatible code indexing solution for JavaScript"
