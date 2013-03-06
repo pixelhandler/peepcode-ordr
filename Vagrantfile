@@ -4,13 +4,11 @@
 Vagrant::Config.run do |config|
   config.vm.box = "precise64-ruby-1.9.3-p194"
   config.vm.box_url = "https://dl.dropbox.com/u/14292474/vagrantboxes/precise64-ruby-1.9.3-p194.box"
-
   config.vm.network :hostonly, '192.168.10.220'
   # vagrant-hostmaster
   config.vm.host_name = "ordr.vagrant"
-
-  config.ssh.forward_agent = true
   config.vm.forward_port 9292, 9292
+  config.ssh.forward_agent = true
 
   config.vm.customize ["modifyvm", :id, "--memory", 1024]
   config.vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -32,7 +30,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "phantomjs"
     chef.add_recipe "vim"
     chef.add_recipe "ack-grep"
-    #chef.add_recipe "mongodb"
+    chef.add_recipe "mongodb"
     chef.add_recipe "deployd"
   end
 end

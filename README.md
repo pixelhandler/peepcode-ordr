@@ -61,7 +61,7 @@ The provision script uses shared folders so the repo on your host system is the 
 * [bin/z-config.sh](bin/z-config.sh) configures [z][rupa_z], tool to jump to your most used directories
 * [bin/vim-config.sh](bin/vim-config.sh) will setup up vim with IDE like tools see repo [pixelhandler/vim-config][pixelhandler_vim-config] 
 * [bin/jsctags.sh](bin/jsctags.sh) configures [jsctags][jsctags], a ctags-compatible code indexing solution for JavaScript
-* [bin/dotfiles.sh](bin/dotfiles.sh) will copy the `dotfiles` folder contents into your vagrant box. If you put your ssh keys, e.g. id_rsa for github, into the [dotfiles/.ssh](dotfiles/.ssh) directory the keys will be copied there as well.
+* [bin/dotfiles.sh](bin/dotfiles.sh) will copy the `dotfiles` folder contents into your vagrant box. Be careful with your ~/.ssh/authorized_keys file inside the (guest) vagrant box, if you clober that you may have to `vagrant destroy` and reprovision with `vagrant up` 
 * [bin/dpd_api.sh](bin/dpd_api.sh) script to setup and maintain a [deployd][deployd] api
 
 Execute the scripts in the /vagrant/bin directory after provisioning the VirtualBox with vagrant and connecting using `vagrant ssh`
@@ -106,4 +106,3 @@ Execute the scripts in the /vagrant/bin directory after provisioning the Virtual
 [vagrant-chef_solo]: http://docs.vagrantup.com/v1/docs/provisioners/chef_solo.html "Vagrant: Chef Solo Provisioning"
 [virtualbox]: https://www.virtualbox.org/wiki/Downloads "Oracle’s VirtualBox"
 
-[ember-handlebars-precompile]: https://gist.github.com/wagenet/1608575 "Ember Handlebars Precompile"
