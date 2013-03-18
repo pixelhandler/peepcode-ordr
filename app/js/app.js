@@ -6,7 +6,7 @@ require("ember");
 require("ember-data");
 
 /*global App*/
-window.App = Ember.Application.create();
+window.App = Ember.Application.create({rootElement: '#app-root'});
 
 // Templates
 require("_tableMenu_template");
